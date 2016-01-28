@@ -1,9 +1,9 @@
 <?php
-require_once 'C:\Users\marc\Documents\EclipseWorkspace\EventRegistrationWeb\Controller\Controller.php';
-require_once 'C:\Users\marc\Documents\EclipseWorkspace\EventRegistrationWeb\Persistence\PersistenceEventRegistration.php';
-require_once 'C:\Users\marc\Documents\EclipseWorkspace\EventRegistrationWeb\Model\RegistrationManager.php';
-require_once 'C:\Users\marc\Documents\EclipseWorkspace\EventRegistrationWeb\Model\Participant.php';
-require_once 'C:\Users\marc\Documents\EclipseWorkspace\EventRegistrationWeb\Model\Event.php';
+require_once 'C:\xampp\htdocs\EventRegistration\Controller\Controller.php';
+require_once 'C:\xampp\htdocs\EventRegistration\Persistence\PersistenceEventRegistration.php';
+require_once 'C:\xampp\htdocs\EventRegistration\Model\RegistrationManager.php';
+require_once 'C:\xampp\htdocs\EventRegistration\Model\Participant.php';
+require_once 'C:\xampp\htdocs\EventRegistration\Model\Event.php';
 
 class ControllerTest extends PHPUnit_Framework_TestCase
 {

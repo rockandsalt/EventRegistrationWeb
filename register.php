@@ -1,5 +1,5 @@
 <?php
-	require_once 'controller/Controller.php';
+	require_once 'C:\xampp\htdocs\EventRegistration\Controller\Controller.php';
 	session_start();
 	$_SESSION["errorRegisterParticipant"] = "";
 	$_SESSION["errorRegisterEvent"] = "";

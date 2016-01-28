@@ -9,10 +9,10 @@
 	</head>
 	<body>
 		<?php 
-		require_once 'C:\Users\marc\Documents\EclipseWorkspace\EventRegistrationWeb\Persistence\PersistenceEventRegistration.php';
-		require_once 'C:\Users\marc\Documents\EclipseWorkspace\EventRegistrationWeb\Model\RegistrationManager.php';
-		require_once 'C:\Users\marc\Documents\EclipseWorkspace\EventRegistrationWeb\Model\Participant.php';
-		require_once 'C:\Users\marc\Documents\EclipseWorkspace\EventRegistrationWeb\Model\Event.php';
+		require_once 'C:\xampp\htdocs\EventRegistration\Persistence\PersistenceEventRegistration.php';
+		require_once 'C:\xampp\htdocs\EventRegistration\Model\RegistrationManager.php';
+		require_once 'C:\xampp\htdocs\EventRegistration\Model\Participant.php';
+		require_once 'C:\xampp\htdocs\EventRegistration\Model\Event.php';
 				
 		session_start();
 		
@@ -50,6 +50,7 @@
 		echo "</span></p>";
 		
 		echo "<p><input type ='submit' value='Register'/></p>";
+		
 		echo "</form>";
 		
 		?>
@@ -63,7 +64,109 @@
 			?>
 			</span></p>
 			<p><input type="submit" value="Add Participant"/></p>
-		</form>	
+		</form>
+			
+		<form action="addevent.php" method = "post">
+			<p>Name? <input type="text" name="event_name"/>
+			<span class = "error">
+			<?php 
+			if(isset($_SESSION['errorEventName']) && !empty($_SESSION['errorEventName']) && is_numeric(strpos($_SESSION['errorEventName'], "@1")))
+			{
+
+				$error_start = strpos($_SESSION['errorEventName'], "@1");
+				$error_end = strpos($_SESSION['errorEventName'], "@",$error_start+1);
+				
+				if($error_end)
+				{
+					echo "*" . substr($_SESSION["errorEventName"],$error_start,$error_end-$error_start);
+				}else 
+				{
+					echo "*". $_SESSION["errorEventName"];
+				}
+				
+			}
+			?>
+			</span></p>
+			
+			<p>Date? <input type="date" name="event_date" value="<?php echo date('Y-m-d'); ?>" />
+			<span class = "error">
+			<?php 
+			if(isset($_SESSION['errorEventName']) && !empty($_SESSION['errorEventName']) && is_numeric(strpos($_SESSION['errorEventName'], "@2")) ){
+				$error_start = strpos($_SESSION['errorEventName'], "@2");
+				$error_end = strpos($_SESSION['errorEventName'], "@",$error_start+1);
+				
+				if($error_end)
+				{
+					echo "*" . substr($_SESSION["errorEventName"],$error_start,$error_end-$error_start);
+				}else 
+				{
+					echo "*". $_SESSION["errorEventName"];
+				}
+			}
+			?>
+			</span></p>
+			
+			<p>Start Time? <input type="time" name="starttime" value="<?php echo date('H:i'); ?>" />
+			<span class = "error">
+			<?php 
+			if(isset($_SESSION['errorEventName']) && !empty($_SESSION['errorEventName']) && (is_numeric(strpos($_SESSION['errorEventName'], "@4")) || is_numeric(strpos($_SESSION['errorEventName'], "@3")))){
+				
+				$error_code = "";
+				
+				if(is_numeric(is_numeric(strpos($_SESSION['errorEventName'], "@4"))))
+				{
+					$error_code = "@4";
+				}else
+				{
+					$error_code = "@3";
+				}
+				
+				$error_start = strpos($_SESSION['errorEventName'], $error_code);
+				$error_end = strpos($_SESSION['errorEventName'], "@",$error_start+1);
+				
+				if($error_end)
+				{
+					echo "*" . substr($_SESSION["errorEventName"],$error_start,$error_end-$error_start);
+				}else 
+				{
+					echo "*". $_SESSION["errorEventName"];
+				}
+			}
+			?>
+			</span></p>
+			
+			<p>End Time? <input type="time" name="endtime" value="<?php echo date('H:i'); ?>" />
+			<span class = "error">
+			<?php 
+			if(isset($_SESSION['errorEventName']) && !empty($_SESSION['errorEventName']) && is_numeric(strpos($_SESSION['errorEventName'], "@4")) ){
+				
+				$error_code = "";
+				
+				if(is_numeric(is_numeric(strpos($_SESSION['errorEventName'], "@4"))))
+				{
+					$error_code = "@4";
+				}else
+				{
+					$error_code = "@3";
+				}
+				
+				$error_start = strpos($_SESSION['errorEventName'], $error_code);
+				$error_end = strpos($_SESSION['errorEventName'], "@",$error_start+1);
+				
+				if($error_end)
+				{
+					echo "*" . substr($_SESSION["errorEventName"],$error_start,$error_end-$error_start);
+				}else 
+				{
+					echo "*". $_SESSION["errorEventName"];
+				}
+				
+			}
+			?>
+			</span></p>
+			
+			<p><input type="submit" value="Add Event"/></p>
+		</form>
 	</body>
 	
 </html>

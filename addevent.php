@@ -1,12 +1,13 @@
 <?php
 	require_once 'C:\xampp\htdocs\EventRegistration\Controller\Controller.php';
 	session_start();
+	
 	$c = new Controller();
 	try {
-		$c->createParticipant($_POST['participant_name']);
-		$_SESSION["errorParticipantName"] = "";
+		$c->createEvent($_POST['event_name'], $_POST['event_date'], $_POST['starttime'], $_POST['endtime']);
+		$_SESSION["errorEventName"] = "";
 	} catch (Exception $e) {
-		$_SESSION["errorParticipantName"] = $e->getMessage();
+		$_SESSION["errorEventName"] = $e->getMessage();
 	}
 ?>
 
