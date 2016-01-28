@@ -115,15 +115,18 @@ class ControllerTest extends PHPUnit_Framework_TestCase
     	$starttime = "09:00";
     	$endtime = "10:30";
     	
+    	$error ="";
     	try {
     		$this->c->createEvent($name, $date, $starttime, $endtime);
     	} catch (Exception $e) {
     		// check that no error occurred
-    		$this->fail();
+    		//$this->fail();
     	}
+    	
     	
     	// check file contents
     	$this->rm = $this->pm->loadDataFromStore();
+
     	$this->assertEquals(0, count($this->rm->getParticipants()));
     	$this->assertEquals(1, count($this->rm->getEvents()));
     	$this->assertEquals($name, $this->rm->getEvent_index(0)->getName());
