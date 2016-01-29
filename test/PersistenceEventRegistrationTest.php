@@ -1,7 +1,7 @@
 <?php
-require_once 'C:\xampp\htdocs\EventRegistration\Persistence\PersistenceEventRegistration.php';
-require_once 'C:\xampp\htdocs\EventRegistration\Model\Participant.php';
-require_once 'C:\xampp\htdocs\EventRegistration\Model\RegistrationManager.php';
+require_once __DIR__.'\..\Persistence\PersistenceEventRegistration.php';
+require_once __DIR__.'\..\Model\Participant.php';
+require_once __DIR__.'\..\Model\RegistrationManager.php';
 
 
 class PersistenceEventRegistrationTest  extends PHPUnit_Framework_TestCase

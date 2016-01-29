@@ -1,5 +1,5 @@
 <?php
-	require_once 'C:\xampp\htdocs\EventRegistration\Controller\Controller.php';
+	require_once __DIR__.'\..\Controller\Controller.php';
 	session_start();
 	$c = new Controller();
 	try {
